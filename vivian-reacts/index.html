@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vivian.reacts — See China, without the guesswork</title>
+  <meta name="description" content="A boutique China consumer-insight consultancy helping overseas brands understand Chinese consumers — in plain English. Free checklist + free 30-minute intro call.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #2B5CFF;
+      --blue-deep: #1E42C0;
+      --coral: #FF5A5F;
+      --yellow: #FFC824;
+      --pink: #FF8FA3;
+      --mint: #7FE3C4;
+      --cream: #FEF9F2;
+      --cream-dark: #FBF0E0;
+      --ink: #1A1A2E;
+      --ink-light: #4A4A5A;
+      --ink-faint: #8A8A9A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--yellow); color: var(--ink); }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ============ NAV ============ */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(254,249,242,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 2px solid var(--ink);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.85rem 1.5rem; max-width: 1120px; margin: 0 auto;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.08rem;
+      text-decoration: none; color: var(--ink);
+    }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--yellow); border: 2.5px solid var(--ink);
+      display: grid; place-items: center;
+      font-size: 1.05rem;
+      box-shadow: 2.5px 2.5px 0 var(--ink);
+      overflow: hidden;
+      padding: 0;
+    }
+    .brand-dot { color: var(--coral); }
+    .nav-right { display: flex; align-items: center; gap: 18px; }
+    .nav-link { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.92rem; }
+    .nav-link:hover { color: var(--coral); }
+    .nav-cta {
+      background: var(--ink); color: var(--cream);
+      padding: 9px 18px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: 0.86rem;
+      transition: transform .15s, background .15s;
+    }
+    .nav-cta:hover { background: var(--coral); transform: translateY(-1px); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      padding: clamp(72px, 11vw, 130px) 0 clamp(40px, 6vw, 64px);
+      overflow: hidden;
+    }
+    /* 背景装饰色块 */
+    .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.5; pointer-events: none; }
+    .blob-1 { width: 420px; height: 420px; background: var(--yellow); top: -140px; right: -100px; }
+    .blob-2 { width: 340px; height: 340px; background: var(--pink); bottom: -120px; left: -120px; opacity: 0.35; }
+
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(32px, 5vw, 60px);
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--yellow); border: 2px solid var(--ink);
+      border-radius: 999px; padding: 7px 16px;
+      font-weight: 600; font-size: 0.82rem;
+      margin-bottom: 1.6rem;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.3rem;
+    }
+    .hero h1 .accent { color: var(--coral); font-style: italic; font-weight: 600; }
+    .hero h1 .hl { background: linear-gradient(transparent 56%, var(--yellow) 56%); padding: 0 0.06em; }
+    .hero-sub {
+      font-size: 1.12rem; color: var(--ink-light);
+      max-width: 520px; margin-bottom: 2.2rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 2rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 16px 30px; border-radius: 13px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      border: 2.5px solid var(--ink);
+      transition: transform .16s cubic-bezier(.34,1.56,.64,1), box-shadow .16s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--blue); color: #fff;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .btn-ghost {
+      background: var(--cream); color: var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .btn:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--ink); }
+
+    /* hero 右侧视觉 */
+    .hero-visual { display: flex; justify-content: center; position: relative; }
+    .photo-card {
+      width: min(100%, 330px); aspect-ratio: 1;
+      border-radius: 28px; border: 3px solid var(--ink);
+      background: var(--blue-deep);
+      display: grid; place-items: center;
+      box-shadow: 12px 12px 0 var(--yellow), 12px 12px 0 3px var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .photo-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 10px; color: #fff; text-align: center; padding: 24px;
+    }
+    .photo-placeholder .cam { font-size: 3rem; }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { .logo-face, .photo-card img { animation: none; } }
+
+    .sticker {
+      position: absolute; z-index: 2;
+      font-family: 'Caveat', cursive; font-weight: 700;
+      color: var(--ink); font-size: 1.25rem;
+      background: var(--pink); border: 2.5px solid var(--ink);
+      border-radius: 999px; padding: 7px 20px;
+      box-shadow: 3px 3px 0 var(--ink);
+      white-space: nowrap;
+    }
+    .sticker-1 { top: 10%; left: -14%; transform: rotate(-9deg); }
+    .sticker-2 { bottom: 7%; right: -10%; transform: rotate(7deg); background: var(--mint); }
+    .sticker-3 { top: 46%; right: -17%; transform: rotate(-4deg); background: var(--yellow); font-size: 1.05rem; }
+
+    /* hero 底部信任条 */
+    .trust-row {
+      display: flex; flex-wrap: wrap; gap: 10px 22px;
+      align-items: center;
+      font-size: 0.88rem; color: var(--ink-light);
+      position: relative; z-index: 1;
+    }
+    .trust-row .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+
+    /* ============ MARQUEE ============ */
+    .marquee-wrap {
+      border-top: 2.5px solid var(--ink);
+      border-bottom: 2.5px solid var(--ink);
+      background: var(--yellow);
+      overflow: hidden;
+      padding: 13px 0;
+    }
+    .marquee {
+      display: flex; gap: 44px; white-space: nowrap;
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+      font-size: 1.02rem; color: var(--ink);
+      animation: scrollX 26s linear infinite;
+      width: max-content;
+    }
+    @keyframes scrollX { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee { animation: none; } }
+    .marquee span { display: inline-flex; align-items: center; gap: 44px; }
+
+    /* ============ SECTIONS ============ */
+    .section { padding: clamp(60px, 9vw, 110px) 0; }
+    .section--alt { background: var(--cream-dark); }
+    .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: clamp(30px, 4.5vw, 52px); }
+    .section-num {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+      font-size: 1.35rem; color: var(--coral); opacity: 0.75;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: clamp(1.65rem, 3.6vw, 2.35rem);
+      letter-spacing: -0.015em;
+    }
+    .section-title .accent { color: var(--coral); font-style: italic; font-weight: 600; }
+
+    /* ---- About ---- */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 0.95fr;
+      gap: clamp(28px, 4.5vw, 64px); align-items: start;
+    }
+    .about-text p + p { margin-top: 1.05rem; }
+    .about-text strong { background: linear-gradient(transparent 58%, var(--yellow) 58%); }
+
+    .fact-list { list-style: none; display: grid; gap: 15px; }
+    .fact-list li {
+      background: #fff; border: 2.5px solid var(--ink);
+      border-radius: 14px; padding: 16px 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+      box-shadow: 4.5px 4.5px 0 var(--ink);
+      transition: transform .15s;
+    }
+    .fact-list li:hover { transform: translate(-2px,-2px); }
+    .fact-list .emoji { font-size: 1.45rem; flex-shrink: 0; line-height: 1.4; }
+
+    /* ---- Topics ---- */
+    .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .topic-card {
+      background: #fff; border: 2.5px solid var(--ink);
+      border-radius: 18px; padding: 26px;
+      position: relative; overflow: hidden;
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: transform .16s cubic-bezier(.34,1.56,.64,1);
+    }
+    .topic-card:hover { transform: translate(-3px,-3px) rotate(-0.5deg); }
+    .topic-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 7px;
+      background: var(--tc, var(--blue));
+      border-bottom: 2.5px solid var(--ink);
+    }
+    .topic-card:nth-child(1) { --tc: var(--blue); }
+    .topic-card:nth-child(2) { --tc: var(--coral); }
+    .topic-card:nth-child(3) { --tc: var(--mint); }
+    .topic-card .num {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+      font-size: 1.55rem; opacity: 0.32; display: block; margin-top: 8px;
+    }
+    .topic-card h3 { font-size: 1.12rem; margin: 10px 0 8px; font-weight: 700; letter-spacing: -0.01em; }
+    .topic-card p { font-size: 0.92rem; color: var(--ink-light); }
+
+    /* ---- Dark quote panel ---- */
+    .dark { background: var(--ink); color: var(--cream); position: relative; overflow: hidden; }
+    .dark::before {
+      content: '“'; font-family: 'Fraunces', serif; font-weight: 900;
+      position: absolute; top: -30px; left: 4%;
+      font-size: clamp(10rem, 22vw, 19rem);
+      color: var(--yellow); opacity: 0.09; line-height: 1;
+      pointer-events: none;
+    }
+    .dark .quote {
+      font-family: 'Fraunces', serif; font-weight: 500;
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      line-height: 1.45; max-width: 800px; position: relative;
+    }
+    .dark .quote em { color: var(--yellow); font-style: normal; }
+    .dark .quote .accent-coral { color: var(--coral); font-style: italic; }
+
+    /* ---- Case carousel ---- */
+    .carousel {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding-bottom: 14px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .carousel::-webkit-scrollbar { height: 8px; }
+    .carousel::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 99px; }
+    .carousel::-webkit-scrollbar-track { background: var(--cream-dark); border-radius: 99px; }
+    .case-card {
+      flex: 0 0 min(78vw, 300px);
+      scroll-snap-align: start;
+      background: #fff; border: 2.5px solid var(--ink);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 5px 5px 0 var(--ink);
+      transition: transform .16s cubic-bezier(.34,1.56,.64,1);
+    }
+    .case-card:hover { transform: translate(-3px,-3px) rotate(-0.5deg); }
+    .case-thumb {
+      height: 150px; display: grid; place-items: center;
+      font-size: 3rem; border-bottom: 2.5px solid var(--ink);
+    }
+    .case-thumb--blue { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); }
+    .case-thumb--coral { background: linear-gradient(135deg, var(--coral) 0%, #d94046 100%); }
+    .case-thumb--mint { background: linear-gradient(135deg, var(--mint) 0%, #4fc9a2 100%); }
+    .case-thumb--yellow { background: linear-gradient(135deg, var(--yellow) 0%, #f0af00 100%); }
+    .case-body { padding: 20px 22px 24px; }
+    .case-tag {
+      display: inline-block; font-family: 'Caveat', cursive; font-weight: 700;
+      font-size: 1.02rem; color: var(--ink);
+      background: var(--cream-dark); border: 1.5px solid var(--ink);
+      border-radius: 999px; padding: 1px 12px; margin-bottom: 10px;
+    }
+    .case-body h3 { font-size: 1.08rem; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .case-body p { font-size: 0.88rem; color: var(--ink-light); }
+
+    /* ---- How we work flow ---- */
+    .flow-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border: 2.5px solid var(--ink); border-radius: 18px;
+      overflow: hidden; box-shadow: 6px 6px 0 var(--ink);
+      background: #fff; margin-bottom: clamp(30px, 4.5vw, 48px);
+    }
+    .flow-step { padding: 22px 20px; position: relative; }
+    .flow-step + .flow-step { border-left: 2.5px dashed var(--ink); }
+    .flow-step .f-num {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+      color: var(--coral); opacity: 0.75; font-size: 1.05rem;
+    }
+    .flow-step h4 { font-size: 0.98rem; margin: 4px 0 6px; }
+    .flow-step p { font-size: 0.83rem; color: var(--ink-light); line-height: 1.55; }
+    @media (max-width: 900px) {
+      .flow-strip { grid-template-columns: 1fr 1fr; }
+      .flow-step:nth-child(3) { border-left: none; border-top: 2.5px dashed var(--ink); }
+      .flow-step:nth-child(4) { border-top: 2.5px dashed var(--ink); }
+    }
+
+    /* ---- Pricing anchor ---- */
+    .price-line {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 18px;
+      margin-top: clamp(26px, 4vw, 40px);
+      padding: 20px 26px;
+      background: var(--ink); color: var(--cream);
+      border-radius: 16px;
+      box-shadow: 6px 6px 0 var(--yellow), 6px 6px 0 2.5px var(--ink);
+    }
+    .price-line .p-big {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+    }
+    .price-line .p-big em { color: var(--yellow); font-style: normal; }
+    .price-line p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: 520px; }
+
+    /* ---- Offer ---- */
+    .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .offer-card {
+      border: 3px solid var(--ink); border-radius: 22px;
+      padding: clamp(30px, 4.5vw, 46px);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+    .offer-card--checklist { background: var(--yellow); }
+    .offer-card--call { background: var(--pink); }
+    .offer-badge {
+      align-self: flex-start;
+      font-family: 'Caveat', cursive; font-weight: 700; font-size: 1.15rem;
+      background: var(--cream); border: 2px solid var(--ink);
+      border-radius: 999px; padding: 3px 14px;
+      transform: rotate(-2deg); margin-bottom: 16px;
+      box-shadow: 2.5px 2.5px 0 var(--ink);
+    }
+    .offer-card h3 {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: clamp(1.5rem, 2.8vw, 1.95rem);
+      margin-bottom: 10px; letter-spacing: -0.01em;
+    }
+    .offer-card > p { margin-bottom: 22px; color: var(--ink); max-width: 400px; }
+    .offer-list { list-style: none; display: grid; gap: 8px; margin-bottom: 26px; font-size: 0.94rem; }
+    .offer-list li { display: flex; gap: 9px; align-items: baseline; }
+    .offer-list .tick { color: var(--blue-deep); font-weight: 700; }
+    .offer-card .btn {
+      margin-top: auto; align-self: flex-start;
+      background: var(--ink); color: var(--cream); border-color: var(--ink);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.28);
+    }
+    .offer-card .btn:hover { background: var(--coral); }
+
+    .note {
+      max-width: 760px; margin-top: 30px;
+      font-size: 0.87rem; color: var(--ink-faint);
+      border-left: none;
+      padding-left: 0;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list { display: grid; gap: 14px; max-width: 820px; }
+    details {
+      background: #fff; border: 2.5px solid var(--ink); border-radius: 14px;
+      padding: 0; box-shadow: 4px 4px 0 var(--ink);
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer; list-style: none;
+      padding: 17px 22px;
+      font-weight: 600; font-size: 1rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+'; font-family: 'Fraunces', serif; font-weight: 700;
+      font-size: 1.4rem; color: var(--coral);
+      transition: transform .2s; flex-shrink: 0;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 22px 18px; color: var(--ink-light); font-size: 0.95rem; }
+
+    /* ---- Final CTA ---- */
+    .final-cta {
+      text-align: center;
+      padding: clamp(70px, 10vw, 120px) 1.5rem;
+      background: var(--blue);
+      border-top: 3px solid var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: ''; position: absolute;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: var(--yellow); opacity: 0.22;
+      top: -160px; left: -110px;
+    }
+    .final-cta::after {
+      content: ''; position: absolute;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: var(--coral); opacity: 0.18;
+      bottom: -130px; right: -80px;
+    }
+    .final-cta h2 {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: clamp(1.9rem, 4.4vw, 3rem);
+      color: #fff; letter-spacing: -0.02em;
+      margin-bottom: 0.8rem; position: relative; z-index: 1;
+    }
+    .final-cta p {
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 2rem; position: relative; z-index: 1;
+    }
+    .final-cta .btn-primary { position: relative; z-index: 1; background: var(--yellow); color: var(--ink); }
+    .final-cta .btn-ghost { position: relative; z-index: 1; background: transparent; color: #fff; border-color: #fff; box-shadow: 5px 5px 0 rgba(0,0,0,0.3); }
+
+    /* ---- Footer ---- */
+    .footer {
+      padding: 44px 1.5rem; text-align: center;
+      font-size: 0.87rem; color: var(--ink-faint);
+      border-top: 3px solid var(--ink);
+      background: var(--cream);
+    }
+    .footer .links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
+    .footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .footer a:hover { color: var(--coral); }
+    .footer .sig { font-family: 'Caveat', cursive; font-size: 1.15rem; color: var(--ink); margin-top: 6px; }
+
+    /* ---- Reveal ---- */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { order: -1; margin-bottom: 10px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .nav-link { display: none; }
+      .sticker-1 { left: -4%; } .sticker-2 { right: -2%; } .sticker-3 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark"><img src="logo-favicon.png" alt="vivian.reacts logo" style="width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;"></span>
+        vivian<span class="brand-dot">.</span>reacts
+      </a>
+      <div class="nav-right">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#topics" class="nav-link">Topics</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#offer" class="nav-cta">Free checklist ↓</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-label">🇨🇳 A boutique China consumer-insight consultancy</span>
+        <h1>See China <span class="hl">without</span> the <span class="accent">guesswork.</span></h1>
+        <p class="hero-sub">We help overseas brands understand Chinese consumers — what they buy, why they buy it, and what it means for you. On-the-ground insight from Beijing, delivered in plain English.</p>
+        <div class="hero-actions">
+          <a href="#offer" class="btn btn-primary">Get the free checklist →</a>
+          <a href="#offer" class="btn btn-ghost">Book a free 30-min call</a>
+        </div>
+        <div class="trust-row">
+          <span><span class="dot" style="background:var(--coral)"></span>Beijing-based, on-the-ground view</span>
+          <span><span class="dot" style="background:var(--blue)"></span>English-first content</span>
+          <span><span class="dot" style="background:var(--yellow)"></span>Consumer insight, not legal advice</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-card">
+          <span class="sticker sticker-1">no fluff!</span>
+          <img src="vivian-portrait.jpg" alt="Vivian, founder of vivian.reacts">
+          <span class="sticker sticker-2">from Beijing</span>
+          <span class="sticker sticker-3">reacts →</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <span>xiaohongshu ✦ guochao ✦ dupes &amp; value-for-money ✦ gen z china ✦ brand naming ✦ douyin vs tmall ✦ consumer psychology ✦ what young china buys</span>
+      <span>xiaohongshu ✦ guochao ✦ dupes &amp; value-for-money ✦ gen z china ✦ brand naming ✦ douyin vs tmall ✦ consumer psychology ✦ what young china buys</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Who we are</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>You keep hearing that China is a huge opportunity — but everything you read is either corporate jargon, outdated, or written in Chinese.</p>
+          <p><strong>vivian.reacts</strong> is a boutique consumer-insight consultancy founded by Vivian, a strategist based in Beijing. We work at the layer most reports miss: how young Chinese people actually decide, what they're proud of buying, which channels they trust — and where overseas brands get it wrong.</p>
+          <p>We deliberately stay small and opinionated: every engagement gets founder-level attention, honest judgments, and recommendations you can act on. Legal, tax, and company setup are better left to licensed professionals — our value lives in culture, consumers, and communication.</p>
+        </div>
+        <ul class="fact-list">
+          <li class="reveal"><span class="emoji">🏙️</span><span><strong>Beijing-based</strong> — we see this market every day with our own eyes, not through translated reports.</span></li>
+          <li class="reveal reveal-d1"><span class="emoji">🗣️</span><span><strong>English-first</strong> — built for global teams, from people who read both sides daily.</span></li>
+          <li class="reveal reveal-d2"><span class="emoji">🎯</span><span><strong>Boutique by design</strong> — small on purpose: senior attention on every project, no junior hand-offs.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section class="section section--alt" id="topics">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">02</span>
+        <h2 class="section-title">What we help with</h2>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-card reveal">
+          <span class="num">a.</span>
+          <h3>Getting into China — the parts reports miss</h3>
+          <p>Opportunity gaps most overseas brands never see, honest reads on young Chinese consumers, channel analysis (Xiaohongshu vs Douyin vs Tmall), and the small mistakes that quietly cost you the market.</p>
+        </div>
+        <div class="topic-card reveal reveal-d1">
+          <span class="num">b.</span>
+          <h3>Adapting your brand story for China</h3>
+          <p>Your culture, voice and marketing won't land here as-is. We translate not just the language but the values — so your story resonates with how Chinese people actually think and buy.</p>
+        </div>
+        <div class="topic-card reveal reveal-d2">
+          <span class="num">c.</span>
+          <h3>A local insight source you can actually trust</h3>
+          <p>Most "China insight" is recycled press releases or outdated decks. We are based in Beijing, reading both sides daily — a living source of what's actually happening on the ground.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Field notes &amp; past work</h2>
+      </div>
+      <div class="carousel reveal" id="caseCarousel">
+        <div class="case-card">
+          <div class="case-thumb case-thumb--blue">🏔️</div>
+          <div class="case-body">
+            <span class="case-tag">Residency · Yunnan</span>
+            <h3>Case study one</h3>
+            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb case-thumb--coral">🏮</div>
+          <div class="case-body">
+            <span class="case-tag">Residency · Beijing</span>
+            <h3>Case study two</h3>
+            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb case-thumb--mint">🍵</div>
+          <div class="case-body">
+            <span class="case-tag">Field research</span>
+            <h3>Case study three</h3>
+            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+          </div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb case-thumb--yellow">📦</div>
+          <div class="case-body">
+            <span class="case-tag">Brand observation</span>
+            <h3>Case study four</h3>
+            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">A selection of field projects across China — residencies, on-the-ground research, and brand observations. Full case library shared during intro calls.</p>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="dark section">
+    <div class="container">
+      <p class="quote reveal">Most overseas brands don't fail in China because the market is hard. They fail because <em>they never understood who they were actually talking to.</em></p>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="section" id="offer">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Start here — <span class="accent">the first step is free</span></h2>
+      </div>
+      <div class="flow-strip reveal">
+        <div class="flow-step">
+          <span class="f-num">step 1</span>
+          <h4>Grab the checklist</h4>
+          <p>15 questions that reframe your China thinking. Free, instant.</p>
+        </div>
+        <div class="flow-step">
+          <span class="f-num">step 2</span>
+          <h4>Book a free 30-min call</h4>
+          <p>Tell us where you're stuck. We listen more than we talk.</p>
+        </div>
+        <div class="flow-step">
+          <span class="f-num">step 3</span>
+          <h4>Get a short analysis</h4>
+          <p>After the call, you receive a brief written take on your situation.</p>
+        </div>
+        <div class="flow-step">
+          <span class="f-num">step 4</span>
+          <h4>Decide, freely</h4>
+          <p>If it resonates, we scope a paid engagement together. If not, the insights are yours.</p>
+        </div>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card offer-card--checklist reveal">
+          <span class="offer-badge">instant · no strings</span>
+          <h3>The free checklist 📋</h3>
+          <p>15 questions that reframe how you think about the Chinese market — the things you should ask yourself <strong>before</strong> spending a single dollar there.</p>
+          <ul class="offer-list">
+            <li><span class="tick">✓</span>Covers naming, channels, audience &amp; mindset</li>
+            <li><span class="tick">✓</span>Get it instantly after one quick form</li>
+            <li><span class="tick">✓</span>No spam — maybe one useful email later</li>
+          </ul>
+          <a href="https://tally.so/r/GxEdZk" class="btn" target="_blank" rel="noopener">Get my checklist →</a>
+        </div>
+        <div class="offer-card offer-card--call reveal reveal-d1">
+          <span class="offer-badge">30 min · free · no pitch</span>
+          <h3>A free intro call 💬</h3>
+          <p>A relaxed conversation about where you're stuck and whether a China angle even makes sense for you. Within 48 hours after the call, you receive a short written analysis of your situation — free.</p>
+          <ul class="offer-list">
+            <li><span class="tick">✓</span>You bring the question, we bring the context</li>
+            <li><span class="tick">✓</span>Written follow-up included, no obligation</li>
+            <li><span class="tick">✓</span>Honest answer if we're not the right fit</li>
+          </ul>
+          <a href="mailto:vivian.chinareacts@gmail.com?subject=Booking%20a%20free%2030-min%20call" class="btn">Book a call →</a>
+        </div>
+      </div>
+      <div class="price-line reveal">
+        <span class="p-big">Engagements from <em>$500</em></span>
+        <p>When we decide to work together, we scope the project around clear milestones — you always know what each stage costs before it starts. The exact quote depends on scope, set together during the free call.</p>
+      </div>
+      <p class="note">The checklist lands instantly — drop your email and it's yours. One honest boundary: legal, tax, and company-registration questions deserve a licensed professional — our focus is consumers, culture, naming, and channel strategy.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Quick answers</h2>
+      </div>
+      <div class="faq-list">
+        <details class="reveal">
+          <summary>Is this only for big brands?</summary>
+          <div class="faq-body">No — most of the people I talk to are small brands, indie founders, or creators testing the waters. Big agencies already have China teams; the people who need this most are the ones without one.</div>
+        </details>
+        <details class="reveal">
+          <summary>How much does an engagement cost?</summary>
+          <div class="faq-body">Paid engagements start from $500, scoped around milestones so you only commit stage by stage. You get an exact quote during the free intro call — never a surprise invoice later.</div>
+        </details>
+        <details class="reveal">
+          <summary>Can you help me register a company or handle taxes in China?</summary>
+          <div class="faq-body">No — and honestly, anyone promising to do that over Instagram DM should be treated with caution. Our lane is consumer insight, culture, naming, and channel strategy. For legal and tax work we'll point you toward proper professionals.</div>
+        </details>
+        <details class="reveal">
+          <summary>Where can I see your content first?</summary>
+          <div class="faq-body">TikTok and Instagram are the fastest ways to get a feel for how we explain things — both linked in the footer below.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Curious? Start with the checklist.</h2>
+    <p>Fifteen minutes now saves months of guessing later.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://tally.so/r/GxEdZk" class="btn btn-primary" target="_blank" rel="noopener">Get the free checklist →</a>
+      <a href="mailto:vivian.chinareacts@gmail.com?subject=Booking%20a%20free%2030-min%20call" class="btn btn-ghost">Book a free call</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="links">
+      <a href="https://www.tiktok.com/@vivian303161" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/vivian.china_reacts" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@vivian.China_reacts" target="_blank" rel="noopener">YouTube</a>
+      <a href="mailto:vivian.chinareacts@gmail.com">Email</a>
+    </div>
+    <p>© 2026 vivian.reacts · Beijing</p>
+    <p class="sig">made by hand, not by a template ✌️</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
