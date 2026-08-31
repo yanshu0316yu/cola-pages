@@ -299,8 +299,12 @@
     }
     .case-card:hover { transform: translate(-3px,-3px) rotate(-0.5deg); }
     .case-thumb {
-      height: 150px; display: grid; place-items: center;
-      font-size: 3rem; border-bottom: 2.5px solid var(--ink);
+      height: 150px; display: block;
+      border-bottom: 2.5px solid var(--ink);
+      overflow: hidden;
+    }
+    .case-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
     .case-thumb--blue { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%); }
     .case-thumb--coral { background: linear-gradient(135deg, var(--coral) 0%, #d94046 100%); }
@@ -592,39 +596,39 @@
       </div>
       <div class="carousel reveal" id="caseCarousel">
         <div class="case-card">
-          <div class="case-thumb case-thumb--blue">🏔️</div>
+          <div class="case-thumb case-thumb--blue"><img src="case-images/case-sixthtone.jpg" alt="Sixth Tone published writing on mushroom hunting and Black Myth: Wukong"></div>
           <div class="case-body">
-            <span class="case-tag">Residency · Yunnan</span>
-            <h3>Case study one</h3>
-            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+            <span class="case-tag">Published work · Sixth Tone</span>
+            <h3>Writing China for a Global Reader</h3>
+            <p>Published English-language cultural commentary on mushroom hunting and <em>Black Myth: Wukong</em>—turning everyday Chinese life and online conversations into context international readers can actually use.</p>
           </div>
         </div>
         <div class="case-card">
-          <div class="case-thumb case-thumb--coral">🏮</div>
+          <div class="case-thumb case-thumb--mint"><img src="case-images/case-huanglong.jpg" alt="Field research on Huanglong Island, Zhejiang"></div>
           <div class="case-body">
-            <span class="case-tag">Residency · Beijing</span>
-            <h3>Case study two</h3>
-            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+            <span class="case-tag">Field research · Huanglong Island</span>
+            <h3>Listening Before Designing</h3>
+            <p>Lived on Huanglong Island, Zhejiang for one month; interviewed residents, documented shifts in local architecture, and compiled oral histories. The work informed a cultural-tourism route framework grounded in residents’ memories—not an outsider’s fantasy.</p>
           </div>
         </div>
         <div class="case-card">
-          <div class="case-thumb case-thumb--mint">🍵</div>
+          <div class="case-thumb case-thumb--yellow"><img src="case-images/case-bergen.jpg" alt="Student organization gathering in Bergen, Norway"></div>
           <div class="case-body">
-            <span class="case-tag">Field research</span>
-            <h3>Case study three</h3>
-            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+            <span class="case-tag">Community building · Bergen, Norway</span>
+            <h3>Building Belonging, Far From Home</h3>
+            <p>As Event Manager for Fantoft’s student organization during a 2024 exchange, organized community life in a new cultural setting as the group’s only Asian leader—a lived lesson in how belonging is built across difference.</p>
           </div>
         </div>
         <div class="case-card">
-          <div class="case-thumb case-thumb--yellow">📦</div>
+          <div class="case-thumb case-thumb--coral"><img src="case-images/case-yunnan.jpg" alt="Volunteer teaching in remote Yunnan"></div>
           <div class="case-body">
-            <span class="case-tag">Brand observation</span>
-            <h3>Case study four</h3>
-            <p>One-line result or insight goes here — what was observed, what it revealed about local consumers.</p>
+            <span class="case-tag">Education fieldwork · Yunnan</span>
+            <h3>Three Years of Reading, One Classroom at a Time</h3>
+            <p>Led three years of online reading programs for children in remote mountain communities, then taught high school in Pu’er. A close look at how access, aspiration, and education shape possibility far beyond China’s cities.</p>
           </div>
         </div>
       </div>
-      <p class="note">A selection of field projects across China — residencies, on-the-ground research, and brand observations. Full case library shared during intro calls.</p>
+      <p class="note">A selection of lived research, writing, and community work across China and beyond. Full case library shared during intro calls.</p>
     </div>
   </section>
 
