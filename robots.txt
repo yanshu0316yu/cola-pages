@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yanshu0316yu.github.io/cola-pages/vivian-reacts/sitemap.xml
